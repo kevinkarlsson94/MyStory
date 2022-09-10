@@ -1,0 +1,6 @@
+@use '../../Styles/colors.scss' as colors;
+
+.AppContainer {
+    height: 100vh;
+    background: colors.$darkViolet;
+}

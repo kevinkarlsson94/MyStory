@@ -1,0 +1,7 @@
+@use 'sass:math';
+
+$gutter: 8px;
+
+@function gutter($count: 1) {
+  @return $gutter * $count;
+}
