@@ -1,21 +1,20 @@
-import styles from './AppHero.module.scss'
+import { Parallax } from "react-parallax"
+import styles from "./AppHero.module.scss"
+import Image1 from "../../Assets/section1.jpeg"
 
 interface Props {
-    title: string
-    description: string
+  title: string
+  buttonText: string
+  onClick: () => void
 }
 
-const AppHero  = ({title, description}: Props) => {
+const AppHero = ({ title, buttonText, onClick }: Props) => {
   return (
-    <div className={styles.AppHeroContainer}>
-        <div className={styles.AppHero}>
-						<h1>
-                {title}
-            </h1>
-            <p>{description}</p>
-        </div>
-    </div>
+    <Parallax bgImage={Image1} className={styles.Start}>
+      <h1>{title}</h1>
+      <button onClick={onClick}>{buttonText}</button>
+    </Parallax>
   )
-};
+}
 
-export default AppHero;
+export default AppHero

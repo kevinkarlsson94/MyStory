@@ -1,51 +1,44 @@
-import ReactMapGl, { Marker } from "react-map-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
+import ReactMapGl, { Marker } from "react-map-gl"
+import "mapbox-gl/dist/mapbox-gl.css"
 
-import styles from "./Map.module.scss";
-import marker from "../../../../Assets/marker.png";
+import styles from "./Map.module.scss"
+import marker from "../../../../Assets/marker.png"
+import { useEffect, useRef } from "react"
+import { Coords } from "../MyStory.types"
+import { getMapToken } from "../../Helpers/getMapToken"
 
 interface Props {
-  viewport: {
-    setter: React.Dispatch<
-      React.SetStateAction<{
-        latitude: number;
-        longitude: number;
-      }>
-    >;
-    getter: {
-      latitude: number;
-      longitude: number;
-    };
-  };
+  currentCoords: Coords
 }
 
-const Map = ({ viewport }: Props) => {
-  const {
-    getter: { latitude, longitude },
-    setter,
-  } = viewport;
+const Map = ({ currentCoords }: Props) => {
+  const { latitude, longitude } = currentCoords
 
-  const getMapToken = () => process.env.REACT_APP_MAP_TOKEN;
+  const mapRef = useRef<any>()
+
+  useEffect(() => {
+    if (mapRef) {
+      mapRef.current?.flyTo({ center: [longitude, latitude], duration: 2000 })
+    }
+  }, [latitude, longitude])
 
   return (
     <ReactMapGl
-      {...viewport}
+      ref={mapRef}
       initialViewState={{
         longitude,
         latitude,
         zoom: 14,
       }}
-      latitude={latitude}
-      longitude={longitude}
       mapboxAccessToken={getMapToken()}
       mapStyle="mapbox://styles/miwii123/cl7uwo312000z15qd0irzbxj3"
-      style={{ width: "100%", height: "300px" }}
+      style={{ width: "100%", height: "400px" }}
     >
       <Marker latitude={latitude} longitude={longitude}>
         <img className={styles.Marker} src={marker} alt={`marker on latitude ${latitude} and longitude ${longitude}`} />
       </Marker>
     </ReactMapGl>
-  );
-};
+  )
+}
 
-export default Map;
+export default Map

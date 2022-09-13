@@ -1,0 +1,14 @@
+.StoryDetails {
+  display: flex;
+  // min-height: 400px;
+  .StoryDetail,
+  .Map {
+    flex: 1;
+  }
+  .StoryDetail {
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

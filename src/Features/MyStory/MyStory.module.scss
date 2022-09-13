@@ -1,15 +1,5 @@
 @use "../../Styles/colors.scss" as colors;
 
-.Filters {
-  margin-bottom: 24px;
-  h3  {
-    margin-bottom: 8px;
-  }
-  .FilterElements {
-    display: flex;
-  }
-}
-
 .MyStory {
   color: #fff;
   background-color: colors.$darkViolet;
@@ -39,51 +29,4 @@
       }
     }
   }
-
-  .Start {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 100vh;
-    h1 {
-      margin-bottom: 16px;
-    }
-    button {
-      background-color: transparent;
-      border: 2px solid white;
-      padding: 16px;
-      color: white;
-      font-size: 16px;
-      &:hover {
-        background-color: white;
-        color: black;
-        cursor: pointer;
-      }
-    }
-  }
-
-  // > div {
-  //   height: 100vh;
-  //   width: 100%;
-  //   > div {
-  //     display: flex;
-  //     align-items: center;
-  //     justify-items: center;
-  //     height: 100%;
-  //     width: 100%;
-  //     > button {
-  //       margin: 0 auto;
-  //       background-color: transparent;
-  //       border: 2px solid white;
-  //       padding: 16px;
-  //       color: white;
-  //       &:hover {
-  //         background-color: white;
-  //         color: black;
-  //         cursor: pointer;
-  //       }
-  //     }
-  //   }
-  // }
 }
