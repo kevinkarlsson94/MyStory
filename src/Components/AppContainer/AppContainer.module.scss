@@ -1,6 +1,11 @@
-@use '../../Styles/colors.scss' as colors;
+@use "../../Styles/colors.scss" as colors;
+@use "../../Styles/structure.scss" as structure;
 
 .AppContainer {
-    height: 100vh;
-    background: colors.$darkViolet;
+  color: colors.$white;
+  padding-top: structure.gutter(5);
+  height: 100vh;
+  background: url(../../Assets//hero.jpeg);
+  background-position: center;
+  background-size: cover;
 }

@@ -1,11 +1,11 @@
-import { AppContainer, AppHero } from "./Components"
+import { AppContainer } from "./Components"
+import { AppHero } from "./Components/AppHero/AppHero"
 import MyStory from "./Features/MyStory/MyStory"
-import { scrollToBottomOfPage } from "./Features/MyStory/MyStory.helpers"
 
 const App = () => {
   return (
     <AppContainer>
-      {/* <AppHero title="Welcome to my timeline!" buttonText="Click here to get to know me" onClick={scrollToBottomOfPage} /> */}
+      <AppHero title="My life in a time line" description="Click a life event to see more information." />
       <MyStory />
     </AppContainer>
   )

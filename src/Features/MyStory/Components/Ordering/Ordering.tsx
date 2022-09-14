@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from "react"
+import Button from "../../../../Components/Button/Button"
 
 import styles from "./Ordering.module.scss"
 
@@ -49,8 +50,8 @@ const Ordering = ({ setOrderingState, orderingState }: Props) => {
 
   return (
     <div className={styles.Ordering}>
-      <button onClick={handleOrderByNameState}>Order by name {getOrderByNameLabel("orderByName")}</button>
-      <button onClick={hndleOrderByYearState}>Order by year {getOrderByNameLabel("orderByYear")}</button>
+      <Button onClick={handleOrderByNameState} label={`Order by name ${getOrderByNameLabel("orderByName")}`} />
+      <Button onClick={hndleOrderByYearState} label={`Order by year ${getOrderByNameLabel("orderByYear")}`} />
     </div>
   )
 }

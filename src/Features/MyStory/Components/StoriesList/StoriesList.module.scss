@@ -7,7 +7,9 @@
   list-style: none;
   padding: structure.gutter(1);
   gap: structure.gutter(1);
+  flex-wrap: wrap;
   .StoriesListItem {
+    flex-basis: calc(25% - 40px);
     border: 1px solid colors.$white;
     padding: structure.gutter(2);
     transition: all 0.2s ease-in-out;

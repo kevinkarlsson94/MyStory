@@ -1,0 +1,14 @@
+@use "../../Styles/colors.scss" as colors;
+
+.Button {
+  color: colors.$white;
+  background: transparent;
+  border: 1px solid colors.$white;
+  width: 140px;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.5);
+  }
+}

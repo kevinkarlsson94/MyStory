@@ -1,4 +1,12 @@
 {
   "editor.formatOnSave": true,
-  "editor.formatOnPaste": true
+  "editor.formatOnPaste": true,
+  "cucumberautocomplete.steps": ["cypress/e2e/**/*.steps.ts"],
+  "cSpell.words": ["badeball", "bahmutov", "esbuild"],
+  "[feature]": {
+    "editor.defaultFormatter": "alexkrechik.cucumberautocomplete"
+  },
+  "[cucumber]": {
+    "editor.defaultFormatter": "alexkrechik.cucumberautocomplete"
+  }
 }

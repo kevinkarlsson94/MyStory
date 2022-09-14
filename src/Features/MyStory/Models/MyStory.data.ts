@@ -1,5 +1,4 @@
-import { Category } from "../Components/Filter/Filter"
-import { Story } from "../Components/MyStory.types"
+import { Story } from "./MyStory.types"
 
 export const stories: Story[] = [
   {
@@ -30,18 +29,18 @@ export const stories: Story[] = [
     date: "2016-11-17",
   },
   {
-    title: "Roppongi",
+    title: "First job",
     country: "Japan",
-    locationName: "Univa Paycast",
+    locationName: "Univa Paycast Roppongi",
     description:
       "After graduating I worked for a payment company called Univa Paycast for 1,5 years in Roppongi. Worked mainly with React, typescript and redux. Since it was my first job it was a very memorable time of my life and I learned a lot.",
     coords: { latitude: 35.663642751996264, longitude: 139.73191896292886 },
     date: "2016-11-17",
   },
   {
-    title: "Stockholm",
+    title: "Second job",
     country: "Sweden",
-    locationName: "Forefront Consulting",
+    locationName: "Forefront Consulting Stockholm",
     description:
       "Moved back to Sweden for some cold northern air! Been working in Stockholm at Forefront consulting. Dispatched at TRR developing services helping laid of employees. It is a job I really love since what I do makes a real impact on peoples life.",
     coords: { latitude: 59.330849049650084, longitude: 18.0663914111625 },
@@ -55,5 +54,14 @@ export const stories: Story[] = [
       "Went to my first sun vacation with my girlfriend to Puerto Rico in Canaria islands. Unfortunately COVID broke out during our trip so we had to spend most of our time in the hotel. But hey, the food was awesome!",
     coords: { latitude: 27.78590217654845, longitude: -15.711089189546476 },
     date: "2020-02-01",
+  },
+  {
+    title: "Moved to Örebro",
+    country: "Sweden",
+    locationName: "Örebro",
+    description:
+      "First the first time in my life, I moved to my own place! It was a small apartment in the central part of a smaller city called Örebro.",
+    coords: { latitude: 59.26828589694834, longitude: 15.204607282230812 },
+    date: "2014-01-15",
   },
 ]

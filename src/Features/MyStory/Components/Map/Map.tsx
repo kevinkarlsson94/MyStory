@@ -1,9 +1,9 @@
 import ReactMapGl from "react-map-gl"
 
 import { useEffect, useRef } from "react"
-import { Story } from "../MyStory.types"
+import { Story } from "../../Models/MyStory.types"
 import { getMapToken } from "../../Helpers/getMapToken"
-import MapPopup from "./MapPopup"
+import { MapPopup, GoToTopButton } from "./MapElements"
 
 interface Props {
   selectedStory: Story
@@ -20,21 +20,24 @@ const Map = ({ selectedStory }: Props) => {
   }, [coords])
 
   return (
-    <ReactMapGl
-      ref={mapRef}
-      initialViewState={{
-        longitude: coords.longitude,
-        latitude: coords.latitude,
-        zoom: 14,
-      }}
-      mapboxAccessToken={getMapToken()}
-      mapStyle="mapbox://styles/miwii123/cl7uwo312000z15qd0irzbxj3"
-      style={{ width: "100%", height: "600px" }}
-    >
-      {coords.latitude && coords.longitude && (
-        <MapPopup latitude={coords.latitude} longitude={coords.longitude} selectedStory={selectedStory} />
-      )}
-    </ReactMapGl>
+    <>
+      <GoToTopButton />
+      <ReactMapGl
+        ref={mapRef}
+        initialViewState={{
+          longitude: coords.longitude,
+          latitude: coords.latitude,
+          zoom: 14,
+        }}
+        mapboxAccessToken={getMapToken()}
+        mapStyle="mapbox://styles/miwii123/cl7uwo312000z15qd0irzbxj3"
+        style={{ width: "100%", height: "600px" }}
+      >
+        {coords.latitude && coords.longitude && (
+          <MapPopup latitude={coords.latitude} longitude={coords.longitude} selectedStory={selectedStory} />
+        )}
+      </ReactMapGl>
+    </>
   )
 }
 

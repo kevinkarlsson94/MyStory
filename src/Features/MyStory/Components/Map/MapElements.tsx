@@ -1,15 +1,24 @@
+import { scrollToTopOfPage } from "../../Helpers/scrollToTopOfPage"
 import { Popup } from "react-map-gl"
-import { Story } from "../MyStory.types"
 
 import styles from "./Map.module.scss"
+import { Story } from "../../Models/MyStory.types"
 
-interface Props {
+export const GoToTopButton = () => {
+  return (
+    <button onClick={() => scrollToTopOfPage()} className={styles.GoToTop}>
+      Go to top 👆
+    </button>
+  )
+}
+
+interface MapPopupProps {
   latitude: number
   longitude: number
   selectedStory: Story
 }
 
-const MapPopup = ({ latitude, longitude, selectedStory }: Props) => (
+export const MapPopup = ({ latitude, longitude, selectedStory }: MapPopupProps) => (
   <Popup latitude={latitude} longitude={longitude} closeButton={false} className={styles.Popup}>
     <h3>{selectedStory.locationName}</h3>
     <i>
@@ -18,5 +27,3 @@ const MapPopup = ({ latitude, longitude, selectedStory }: Props) => (
     <p>{selectedStory.description}</p>
   </Popup>
 )
-
-export default MapPopup

@@ -1,4 +1,3 @@
-import AppHero from "./AppHero/AppHero";
-import AppContainer from "./AppContainer/AppContainer";
+import AppContainer from "./AppContainer/AppContainer"
 
-export { AppHero, AppContainer }
+export { AppContainer }

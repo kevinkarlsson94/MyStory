@@ -1,26 +1,7 @@
-@use "../../Styles/colors.scss" as colors;
 @use "../../Styles/structure.scss" as structure;
+@use "../../Styles/colors.scss" as colors;
 
-.Start {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.AppHero {
   text-align: center;
-  height: 100vh;
-  h1 {
-    margin-bottom: structure.gutter(2);
-    color: colors.$white;
-  }
-  button {
-    background-color: transparent;
-    border: 2px solid colors.$white;
-    padding: structure.gutter(2);
-    color: colors.$white;
-    font-size: structure.gutter(2);
-    &:hover {
-      background-color: colors.$white;
-      color: colors.$black;
-      cursor: pointer;
-    }
-  }
+  margin-bottom: structure.gutter(4);
 }

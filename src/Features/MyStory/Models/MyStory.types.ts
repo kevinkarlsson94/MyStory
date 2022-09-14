@@ -1,5 +1,3 @@
-import { CategoryType } from "./Filter/Filter"
-
 export interface Coords {
   latitude: number
   longitude: number

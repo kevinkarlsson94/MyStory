@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useEffect } from "react"
-import { Story } from "../MyStory.types"
-import { OrderingState } from "../Ordering/Ordering"
+import { Story } from "../Models/MyStory.types"
+import { OrderingState } from "../Components/Ordering/Ordering"
 
 const useSetOrdering = (orderingState: OrderingState, setCurrentStories: Dispatch<SetStateAction<Story[]>>, currentStories: Story[]) => {
   useEffect(() => {

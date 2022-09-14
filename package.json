@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "12.0.1",
+    "@bahmutov/cypress-esbuild-preprocessor": "2.1.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -15,8 +17,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-map-gl": "^7.0.19",
-    "react-mapbox-gl": "^5.1.1",
-    "react-parallax": "^3.5.1",
     "react-scripts": "5.0.1",
     "sass": "^1.54.9",
     "typescript": "^4.8.3",
@@ -26,12 +26,24 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cy:run": "npx cypress run",
+    "cy:open": "npx cypress open"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
+    ]
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "transform": {
+      "node_modules/variables/.+\\.(j|t)sx?$": "ts-jest"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!variables/.*)"
     ]
   },
   "browserslist": {
@@ -47,8 +59,13 @@
     ]
   },
   "devDependencies": {
+    "cypress": "^10.8.0",
     "eslint": "^8.23.0",
     "eslint-plugin-react": "^7.31.8",
-    "prettier": "2.7.1"
+    "prettier": "2.7.1",
+    "ts-jest": "^29.0.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
   }
 }

@@ -10,5 +10,8 @@
     background: transparent;
     border: 1px solid colors.$white;
     width: 140px;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

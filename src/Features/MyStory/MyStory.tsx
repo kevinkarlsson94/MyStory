@@ -1,13 +1,11 @@
 import styles from "./MyStory.module.scss"
 import { useState } from "react"
 
-import { Story } from "./Components/MyStory.types"
-import StoriesList from "./Components/StoriesList/StoriesList"
-import { TimelineHeader } from "./Components/TimelineHeader/TimelineHeader"
-import Ordering, { initialOrderState, OrderingState } from "./Components/Ordering/Ordering"
+import { Story } from "./Models/MyStory.types"
+import { initialOrderState, OrderingState } from "./Components/Ordering/Ordering"
 import { stories } from "./Models/MyStory.data"
-import useSetOrdering from "./Components/Hooks/useSetOrdering"
-import StoryDetails from "./Components/StoryDetails/StoryDetails"
+import useSetOrdering from "./Hooks/useSetOrdering"
+import { Map, StoriesList, Ordering, Timeline, Navigation } from "./Components"
 
 const MyStory = () => {
   const [currentStories, setCurrentStories] = useState<Story[]>(stories)
@@ -16,21 +14,18 @@ const MyStory = () => {
 
   useSetOrdering(orderingState, setCurrentStories, currentStories)
 
-  console.log("currentStories", currentStories)
-
   return (
     <div className={styles.MyStory}>
-      <div className={styles.Timeline}>
-        <TimelineHeader />
+      <Timeline>
         <Ordering setOrderingState={setOrderingState} orderingState={orderingState} />
         <StoriesList.Container>
           {currentStories.map((story, index) => (
             <StoriesList.Item key={story.title} selectedStory={selectedStory} story={story} setSelectedStory={setSelectedStory} />
           ))}
         </StoriesList.Container>
-      </div>
-
-      <StoryDetails selectedStory={selectedStory} description={selectedStory?.description} />
+      </Timeline>
+      <Navigation currentStories={currentStories} setSelectedStory={setSelectedStory} selectedStory={selectedStory} />
+      <Map selectedStory={selectedStory} />
     </div>
   )
 }
