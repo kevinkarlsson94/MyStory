@@ -1,4 +1,18 @@
-.Marker {
-  width: 200px;
-  height: 160px;
+@use "../../../../Styles/colors.scss" as colors;
+@use "../../../../Styles/structure.scss" as structure;
+
+.Popup {
+  color: colors.$black;
+  h3 {
+    font-size: structure.gutter(3);
+    margin-bottom: structure.gutter(1);
+  }
+  p {
+    font-size: 12px;
+  }
+  i {
+    opacity: 0.5;
+    display: block;
+    margin-bottom: structure.gutter(1);
+  }
 }

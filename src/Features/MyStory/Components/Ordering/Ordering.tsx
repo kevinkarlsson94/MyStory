@@ -3,8 +3,8 @@ import { Dispatch, SetStateAction } from "react"
 import styles from "./Ordering.module.scss"
 
 export interface OrderingState {
-  orderByName: "asc" | "desc" | null
-  orderByYear: "asc" | "desc" | null
+  orderByName: "asc" | "desc" | undefined
+  orderByYear: "asc" | "desc" | undefined
 }
 
 interface Props {
@@ -12,25 +12,45 @@ interface Props {
   orderingState: OrderingState
 }
 
-export const initialOrderState: OrderingState = { orderByName: null, orderByYear: null }
+export const initialOrderState: OrderingState = { orderByName: undefined, orderByYear: undefined }
 
 const Ordering = ({ setOrderingState, orderingState }: Props) => {
-  const getOrderByNameLabel = () => (orderingState.orderByName === "asc" ? "ascending" : "descending" && "")
-  const getOrderByNameState = () => {
-    if (orderingState.orderByName === null) {
-      return "asc"
-    } else if (orderingState.orderByName === "asc") {
-      return "desc"
-    } else {
-      return null
+  const getOrderByNameLabel = <K extends keyof OrderingState>(prop: K) => {
+    if (orderingState[prop] === undefined) {
+      return ""
     }
+    if (orderingState[prop] === "asc") {
+      return "▲"
+    }
+    if (orderingState[prop] === "desc") {
+      return "▼"
+    }
+  }
+
+  const getOrderByNameState = <K extends keyof OrderingState>(prop: K) => {
+    if (orderingState[prop] === undefined) {
+      return "asc"
+    }
+    if (orderingState[prop] === "asc") {
+      return "desc"
+    }
+    if (orderingState[prop] === "desc") {
+      return "asc"
+    }
+  }
+
+  const handleOrderByNameState = () => {
+    setOrderingState({ orderByYear: undefined, orderByName: getOrderByNameState("orderByName") })
+  }
+
+  const hndleOrderByYearState = () => {
+    setOrderingState({ orderByYear: getOrderByNameState("orderByYear"), orderByName: undefined })
   }
 
   return (
     <div className={styles.Ordering}>
-      <button onClick={() => setOrderingState((os) => ({ ...os, orderByName: getOrderByNameState() }))}>
-        Order by name {getOrderByNameLabel()}
-      </button>
+      <button onClick={handleOrderByNameState}>Order by name {getOrderByNameLabel("orderByName")}</button>
+      <button onClick={hndleOrderByYearState}>Order by year {getOrderByNameLabel("orderByYear")}</button>
     </div>
   )
 }

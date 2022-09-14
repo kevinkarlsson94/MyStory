@@ -1,42 +1,39 @@
-import ReactMapGl, { Marker } from "react-map-gl"
-import "mapbox-gl/dist/mapbox-gl.css"
+import ReactMapGl from "react-map-gl"
 
-import styles from "./Map.module.scss"
-import marker from "../../../../Assets/marker.png"
 import { useEffect, useRef } from "react"
-import { Coords } from "../MyStory.types"
+import { Story } from "../MyStory.types"
 import { getMapToken } from "../../Helpers/getMapToken"
+import MapPopup from "./MapPopup"
 
 interface Props {
-  currentCoords: Coords
+  selectedStory: Story
 }
 
-const Map = ({ currentCoords }: Props) => {
-  const { latitude, longitude } = currentCoords
-
+const Map = ({ selectedStory }: Props) => {
+  const { coords } = selectedStory
   const mapRef = useRef<any>()
 
   useEffect(() => {
-    if (mapRef) {
-      mapRef.current?.flyTo({ center: [longitude, latitude], duration: 2000 })
+    if (mapRef && coords) {
+      mapRef.current?.flyTo({ center: [coords.longitude, coords.latitude], duration: 2000 })
     }
-  }, [latitude, longitude])
+  }, [coords])
 
   return (
     <ReactMapGl
       ref={mapRef}
       initialViewState={{
-        longitude,
-        latitude,
+        longitude: coords.longitude,
+        latitude: coords.latitude,
         zoom: 14,
       }}
       mapboxAccessToken={getMapToken()}
       mapStyle="mapbox://styles/miwii123/cl7uwo312000z15qd0irzbxj3"
-      style={{ width: "100%", height: "400px" }}
+      style={{ width: "100%", height: "600px" }}
     >
-      <Marker latitude={latitude} longitude={longitude}>
-        <img className={styles.Marker} src={marker} alt={`marker on latitude ${latitude} and longitude ${longitude}`} />
-      </Marker>
+      {coords.latitude && coords.longitude && (
+        <MapPopup latitude={coords.latitude} longitude={coords.longitude} selectedStory={selectedStory} />
+      )}
     </ReactMapGl>
   )
 }

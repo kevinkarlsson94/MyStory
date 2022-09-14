@@ -1,6 +1,6 @@
 import { Parallax } from "react-parallax"
 import styles from "./AppHero.module.scss"
-import Image1 from "../../Assets/section1.jpeg"
+import Image1 from "../../Assets/hero.jpeg"
 
 interface Props {
   title: string

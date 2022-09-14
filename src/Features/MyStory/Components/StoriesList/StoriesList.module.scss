@@ -1,6 +1,23 @@
-.StoriesListItem {
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
+@use "../../../../Styles/structure.scss" as structure;
+@use "../../../../Styles/colors.scss" as colors;
+
+.StoriesList {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding: structure.gutter(1);
+  gap: structure.gutter(1);
+  .StoriesListItem {
+    border: 1px solid colors.$white;
+    padding: structure.gutter(2);
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      transform: scale(0.95);
+      background-color: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+    }
+    &.Selected {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
   }
 }

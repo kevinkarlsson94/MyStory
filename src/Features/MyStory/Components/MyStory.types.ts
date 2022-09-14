@@ -6,8 +6,9 @@ export interface Coords {
 }
 export interface Story {
   title: string
+  country: string
+  locationName: string
   description: string
   date: string
   coords: Coords
-  category: CategoryType
 }

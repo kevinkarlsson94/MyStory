@@ -1,17 +1,19 @@
 import { ChangeEvent, Dispatch, SetStateAction } from "react"
-import { generateYearsOption } from "../../MyStory.helpers"
+import { removeDuplicatesFromArray } from "../../MyStory.helpers"
+import { Story } from "../MyStory.types"
 import styles from "./Filter.module.scss"
 
-export const initialFilterState: FilterState = { year: "", category: null }
+export const initialFilterState: FilterState = { year: undefined, category: undefined }
 
 interface Props {
   setFilterState: Dispatch<SetStateAction<FilterState>>
   filterState: FilterState
+  stories: Story[]
 }
 
 export interface FilterState {
-  category: Category | null
-  year: string
+  category: Category | undefined
+  year: string | undefined
 }
 
 export enum Category {
@@ -23,10 +25,18 @@ export enum Category {
 
 export type CategoryType = Category
 
-const Filter = ({ setFilterState, filterState }: Props) => {
+const Filter = ({ setFilterState, filterState, stories }: Props) => {
   const handleCategoryChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setFilterState((fs) => ({ ...fs, category: event.target.value as CategoryType }))
   }
+
+  const getExistingYearsInStoryList = (stories: Story[]): number[] =>
+    removeDuplicatesFromArray(stories.map((story) => new Date(story.date).getFullYear())) as number[]
+
+  const generateYearsOptions = (existingYearsInStoryList: number[]) =>
+    existingYearsInStoryList.map((year) => <option value={Number(year)}>{String(year)}</option>)
+
+  const existingYearsInStoryList = getExistingYearsInStoryList(stories)
 
   const handleYearChange = (event: ChangeEvent<HTMLSelectElement>) => setFilterState((fs) => ({ ...fs, year: event.target.value }))
 
@@ -43,15 +53,21 @@ const Filter = ({ setFilterState, filterState }: Props) => {
           <option selected={selectItemIsSelected(Category.JOB, filterState)} value={Category.JOB}>
             Job
           </option>
-          <option value={Category.VACATION}>Vacation</option>
-          <option value={Category.EDUCATION}>Education</option>
-          <option value={Category.MISC}>Other</option>
+          <option selected={selectItemIsSelected(Category.VACATION, filterState)} value={Category.VACATION}>
+            Vacation
+          </option>
+          <option selected={selectItemIsSelected(Category.EDUCATION, filterState)} value={Category.EDUCATION}>
+            Education
+          </option>
+          <option selected={selectItemIsSelected(Category.MISC, filterState)} value={Category.MISC}>
+            Other
+          </option>
         </select>
         <select onChange={handleYearChange}>
           <option disabled selected>
             Date from
           </option>
-          {generateYearsOption(2010, 20)}
+          {generateYearsOptions(existingYearsInStoryList)}
         </select>
         <button onClick={() => setFilterState(initialFilterState)}>Clear filters</button>
       </div>

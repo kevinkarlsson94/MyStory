@@ -3,4 +3,12 @@
 
 .Ordering {
   margin-bottom: structure.gutter(4);
+  display: flex;
+  gap: 8px;
+  button {
+    color: colors.$white;
+    background: transparent;
+    border: 1px solid colors.$white;
+    width: 140px;
+  }
 }

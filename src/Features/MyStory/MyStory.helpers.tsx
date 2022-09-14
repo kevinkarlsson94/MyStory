@@ -1,7 +1,6 @@
-export const generateYearsOption = (startValue: number, increments: number) =>
-  Array(increments)
-    .fill("")
-    .map((_, i) => <option value={startValue + i}>{startValue + i}</option>)
+import { Story } from "./Components/MyStory.types"
+
+export const removeDuplicatesFromArray = <T extends unknown[]>(array: T): unknown[] => Array.from(new Set(array))
 
 export const scrollToBottomOfPage = () =>
   window.scroll({

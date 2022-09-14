@@ -1,39 +1,31 @@
 import { Dispatch, ReactElement, SetStateAction } from "react"
-import { CategoryType } from "../Filter/Filter"
-import { Coords, Story } from "../MyStory.types"
+import { Story } from "../MyStory.types"
+import clsx from "clsx"
 
 import styles from "./StoriesList.module.scss"
 
 interface StoriesListItemProps {
-  title: string
-  date: string
-  description: string
-  category: CategoryType
-  setCurrentCoords: Dispatch<SetStateAction<Coords>>
-  setSelectedStory: Dispatch<SetStateAction<Story | null>>
-  coords: Coords
+  story: Story
+  setSelectedStory: Dispatch<SetStateAction<Story>>
+  selectedStory: Story
 }
 
 interface StoriesListProps {
   children: ReactElement | ReactElement[]
 }
 
-const StoriesListItem = ({ title, date, description, category, setCurrentCoords, coords, setSelectedStory }: StoriesListItemProps) => (
+const StoriesListItem = ({ story, setSelectedStory, selectedStory }: StoriesListItemProps) => (
   <li
-    className={styles.StoriesListItem}
-    key={title}
-    onClick={() => {
-      setCurrentCoords(coords)
-      setSelectedStory({ title, date, description, coords, category })
-    }}
+    key={story.title}
+    onClick={() => setSelectedStory(story)}
+    className={clsx(styles.StoriesListItem, { [styles.Selected]: story.title === selectedStory.title })}
   >
-    <h3>{title}</h3>
-    <i>{date}</i>
-    <p>{description}</p>
+    <h3>{story.title}</h3>
+    <i>{story.date}</i>
   </li>
 )
 
-const StoriesList = ({ children }: StoriesListProps) => <ul>{children}</ul>
+const StoriesList = ({ children }: StoriesListProps) => <ul className={styles.StoriesList}>{children}</ul>
 
 export default {
   Container: StoriesList,
