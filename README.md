@@ -5,6 +5,8 @@ React app that displays a story of my life. Build as a frontend assignment for A
 A hosted build can be found here:
 [My Story](https://bright-daffodil-dd560f.netlify.app/)
 
+The integration tests cases can be found under `cypress -> e2e -> MyStory -> MyStory.feature`.
+
 ## Prerequisites
 
 Run `npm install` to install all dependencies.
