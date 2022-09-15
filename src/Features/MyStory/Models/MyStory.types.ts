@@ -3,6 +3,7 @@ export interface Coords {
   longitude: number
 }
 export interface Story {
+  id: number
   title: string
   country: string
   locationName: string

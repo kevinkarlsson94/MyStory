@@ -33,8 +33,8 @@ const Navigation = ({ currentStories, selectedStory, setSelectedStory }: Props) 
 
   return (
     <div className={styles.Navigation}>
-      <Button onClick={gotoPreviousStory} label="👈 Previous story" />
-      <Button onClick={gotoNextStory} label="Next story 👉" />
+      <Button testSelector="prev-button" onClick={gotoPreviousStory} label="👈 Previous story" />
+      <Button testSelector="next-button" onClick={gotoNextStory} label="Next story 👉" />
     </div>
   )
 }

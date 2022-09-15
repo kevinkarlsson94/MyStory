@@ -20,11 +20,13 @@ interface MapPopupProps {
 
 export const MapPopup = ({ latitude, longitude, selectedStory }: MapPopupProps) => (
   <Popup latitude={latitude} longitude={longitude} closeButton={false} className={styles.Popup}>
-    <h3>{selectedStory.locationName}</h3>
-    <i>
-      {selectedStory.country} - {selectedStory.date}
-    </i>
-    <p>{selectedStory.description}</p>
-    {selectedStory.image && <img alt={selectedStory.title} src={selectedStory.image} />}
+    <div data-testid={`stories-list-popup-${selectedStory.id}`}>
+      <h3>{selectedStory.locationName}</h3>
+      <i>
+        {selectedStory.country} - {selectedStory.date}
+      </i>
+      <p>{selectedStory.description}</p>
+      {selectedStory.image && <img alt={selectedStory.title} src={selectedStory.image} />}
+    </div>
   </Popup>
 )

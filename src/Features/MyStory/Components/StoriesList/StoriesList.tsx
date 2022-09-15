@@ -22,8 +22,8 @@ const StoriesListItem = ({ story, setSelectedStory, selectedStory }: StoriesList
       setSelectedStory(story)
       scrollToBottomOfPage()
     }}
-    className={clsx(styles.StoriesListItem, { [styles.Selected]: story.title === selectedStory.title })}
-    data-testid="stories-list-item"
+    className={clsx(styles.StoriesListItem, { [styles.Selected]: story.id === selectedStory.id })}
+    data-testid={`stories-list-item-${story.id}`}
   >
     <h3>{story.title}</h3>
     <i>{story.date}</i>

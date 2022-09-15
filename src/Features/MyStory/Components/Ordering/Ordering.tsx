@@ -26,14 +26,22 @@ const Ordering = ({ setOrderingState, orderingState }: Props) => {
     setOrderingState({ orderByYear: undefined, orderByName: getOrderByNameState("orderByName") })
   }
 
-  const hndleOrderByYearState = () => {
+  const handleOrderByYearState = () => {
     setOrderingState({ orderByYear: getOrderByNameState("orderByYear"), orderByName: undefined })
   }
 
   return (
     <div className={styles.Ordering}>
-      <Button onClick={handleOrderByNameState} label={`Order by name ${getOrderByNameLabel("orderByName")}`} />
-      <Button onClick={hndleOrderByYearState} label={`Order by year ${getOrderByNameLabel("orderByYear")}`} />
+      <Button
+        testSelector="order-by-name-button"
+        onClick={handleOrderByNameState}
+        label={`Order by name ${getOrderByNameLabel("orderByName")}`}
+      />
+      <Button
+        testSelector="order-by-date-button"
+        onClick={handleOrderByYearState}
+        label={`Order by year ${getOrderByNameLabel("orderByYear")}`}
+      />
     </div>
   )
 }
