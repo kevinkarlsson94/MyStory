@@ -1,46 +1,31 @@
-# Getting Started with Create React App
+# My Story task (For Axelspace)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React app that displays a story of my life. Build as a frontend assignment for Axelspace.
 
-## Available Scripts
+A hosted build can be found here:
+[My Story](https://bright-daffodil-dd560f.netlify.app/)
 
-In the project directory, you can run:
+## Prerequisites
 
-### `npm start`
+Run `npm install` to install all dependencies.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+As for the integration tests installing a Plugin for Cypress-Cucumber will make the tests easier to read.
+You will also get test case highlights and feature to steps autolinking.
+If you are using VS Code you should be recommended by VS Code to install "Cucumber (Gherkin) Full Support".
+If not using VS code there is probably a plugin available for your IDE.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## The following scripts are available at your service:
 
-### `npm test`
+- `npm start` - Starts the project on port `3000`
+- `npm run build` - Builds the project
+- `npm run test` - Runs unit tests (very few)
+- `npm run cy:open` - Runs all the Cypress integration tests using Cypress GUI
+- `npm run cy:run` - Runs all the Cypress integration tests in the terminal
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Some thoughts and future improvements
 
-### `npm run build`
+I was thinking about creating a context to pass the different states/setStates over the app.
+But it might be harder to follow when reviewing so I decided to keep it simple just passing the states and their setters as props.
+Another idea would be to use [React-Signal](https://www.npmjs.com/package/react-signal) for communication between the components.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+I didn't have enough time to get TS-config paths to work, so some imports might be a little bit long. Fixing this should clean it up a bit.
