@@ -9,4 +9,5 @@ export interface Story {
   description: string
   date: string
   coords: Coords
+  image?: any
 }

@@ -1,0 +1,21 @@
+$screen-small: 576px;
+$screen-medium: 1024px;
+$screen-large: 1366px;
+
+@mixin smallScreen {
+  @media (min-width: #{$screen-small}) {
+    @content;
+  }
+}
+
+@mixin mediumScreen {
+  @media (min-width: #{$screen-medium}) {
+    @content;
+  }
+}
+
+@mixin largeScreen {
+  @media (min-width: #{$screen-large}) {
+    @content;
+  }
+}

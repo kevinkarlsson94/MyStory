@@ -16,29 +16,11 @@ interface Props {
 export const initialOrderState: OrderingState = { orderByName: undefined, orderByYear: undefined }
 
 const Ordering = ({ setOrderingState, orderingState }: Props) => {
-  const getOrderByNameLabel = <K extends keyof OrderingState>(prop: K) => {
-    if (orderingState[prop] === undefined) {
-      return ""
-    }
-    if (orderingState[prop] === "asc") {
-      return "▲"
-    }
-    if (orderingState[prop] === "desc") {
-      return "▼"
-    }
-  }
+  const getOrderByNameLabel = <K extends keyof OrderingState>(prop: K) =>
+    orderingState[prop] === "asc" ? "▲" : orderingState[prop] === "desc" ? "▼" : ""
 
-  const getOrderByNameState = <K extends keyof OrderingState>(prop: K) => {
-    if (orderingState[prop] === undefined) {
-      return "asc"
-    }
-    if (orderingState[prop] === "asc") {
-      return "desc"
-    }
-    if (orderingState[prop] === "desc") {
-      return "asc"
-    }
-  }
+  const getOrderByNameState = <K extends keyof OrderingState>(prop: K) =>
+    orderingState[prop] === "asc" ? "desc" : orderingState[prop] === "desc" ? "asc" : "asc"
 
   const handleOrderByNameState = () => {
     setOrderingState({ orderByYear: undefined, orderByName: getOrderByNameState("orderByName") })

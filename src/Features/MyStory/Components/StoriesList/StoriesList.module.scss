@@ -1,5 +1,6 @@
 @use "../../../../Styles/structure.scss" as structure;
 @use "../../../../Styles/colors.scss" as colors;
+@use "../../../../Styles/breakpoints.scss" as breakpoints;
 
 .StoriesList {
   display: flex;
@@ -9,7 +10,7 @@
   gap: structure.gutter(1);
   flex-wrap: wrap;
   .StoriesListItem {
-    flex-basis: calc(25% - 40px);
+    flex-basis: calc(50% - 40px);
     border: 1px solid colors.$white;
     padding: structure.gutter(2);
     transition: all 0.2s ease-in-out;
@@ -20,6 +21,9 @@
     }
     &.Selected {
       background-color: rgba(255, 255, 255, 0.3);
+    }
+    @include breakpoints.mediumScreen {
+      flex-basis: calc(25% - 40px);
     }
   }
 }

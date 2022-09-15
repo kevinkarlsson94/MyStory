@@ -19,7 +19,7 @@ const MyStory = () => {
       <Timeline>
         <Ordering setOrderingState={setOrderingState} orderingState={orderingState} />
         <StoriesList.Container>
-          {currentStories.map((story, index) => (
+          {currentStories?.map((story, index) => (
             <StoriesList.Item key={story.title} selectedStory={selectedStory} story={story} setSelectedStory={setSelectedStory} />
           ))}
         </StoriesList.Container>

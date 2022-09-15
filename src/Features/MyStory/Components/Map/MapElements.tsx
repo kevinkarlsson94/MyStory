@@ -25,5 +25,6 @@ export const MapPopup = ({ latitude, longitude, selectedStory }: MapPopupProps) 
       {selectedStory.country} - {selectedStory.date}
     </i>
     <p>{selectedStory.description}</p>
+    {selectedStory.image && <img alt={selectedStory.title} src={selectedStory.image} />}
   </Popup>
 )

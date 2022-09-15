@@ -1,5 +1,4 @@
-import { AppContainer } from "./Components"
-import { AppHero } from "./Components/AppHero/AppHero"
+import { AppContainer, AppHero } from "./Components"
 import MyStory from "./Features/MyStory/MyStory"
 
 const App = () => {

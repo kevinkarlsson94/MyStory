@@ -5,9 +5,11 @@ interface Props {
   description: string
 }
 
-export const AppHero = ({ title, description }: Props) => (
+const AppHero = ({ title, description }: Props) => (
   <div className={styles.AppHero}>
     <h2>{title}</h2>
     <p>{description}</p>
   </div>
 )
+
+export default AppHero

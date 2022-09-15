@@ -1,5 +1,6 @@
 import { Dispatch, SetStateAction } from "react"
 import Button from "../../../../Components/Button/Button"
+import { scrollToBottomOfPage } from "../../Helpers/scrollToBottomOfPage"
 import { Story } from "../../Models/MyStory.types"
 
 import styles from "./Navigation.module.scss"
@@ -18,6 +19,7 @@ const Navigation = ({ currentStories, selectedStory, setSelectedStory }: Props) 
     } else {
       setSelectedStory(currentStories[0])
     }
+    scrollToBottomOfPage()
   }
   const gotoPreviousStory = () => {
     const currentIndexOfStory = currentStories.indexOf(selectedStory)
@@ -26,6 +28,7 @@ const Navigation = ({ currentStories, selectedStory, setSelectedStory }: Props) 
     } else {
       setSelectedStory(currentStories[currentStories.length - 1])
     }
+    scrollToBottomOfPage()
   }
 
   return (
