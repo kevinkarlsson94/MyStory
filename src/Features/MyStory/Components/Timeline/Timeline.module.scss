@@ -1,10 +1,14 @@
+@use "../../../../Styles/structure.scss" as structure;
+@use "../../../../Styles/colors.scss" as colors;
+@use "../../../../Styles/breakpoints.scss" as breakpoints;
+
 .Timeline {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 0;
+  padding: structure.gutter(5) 0;
   h2 {
-    margin-bottom: 24px;
+    margin-bottom: structure.gutter(3);
     margin-top: 0;
   }
 }

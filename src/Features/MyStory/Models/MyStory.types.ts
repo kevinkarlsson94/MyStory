@@ -12,3 +12,10 @@ export interface Story {
   coords: Coords
   image?: any
 }
+
+export interface OrderingState {
+  orderByName: OrderingStateType
+  orderByYear: OrderingStateType
+}
+
+export type OrderingStateType = "asc" | "desc" | undefined

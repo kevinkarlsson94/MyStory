@@ -1,12 +1,8 @@
 import { Dispatch, SetStateAction } from "react"
 import Button from "../../../../Components/Button/Button"
+import { OrderingState } from "../../Models/MyStory.types"
 
 import styles from "./Ordering.module.scss"
-
-export interface OrderingState {
-  orderByName: "asc" | "desc" | undefined
-  orderByYear: "asc" | "desc" | undefined
-}
 
 interface Props {
   setOrderingState: Dispatch<SetStateAction<OrderingState>>
